@@ -163,7 +163,7 @@ const loadInitialBooks = () => {
 
   initialBooks.forEach((book) => {
     const preview = createPreview({
-      author: book.author,
+      author: authors[book.author],
       id: book.id,
       image: book.image,
       title: book.title,
