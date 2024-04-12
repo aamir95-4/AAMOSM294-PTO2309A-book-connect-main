@@ -13,7 +13,7 @@ export const html = {
     button: document.querySelector("[data-list-button]"),
     overlay: document.querySelector("[data-list-active]"),
     blur: document.querySelector("[data-list-blur]"),
-    img: document.querySelector("[data-list-img]"),
+    image: document.querySelector("[data-list-image]"),
     title: document.querySelector("[data-list-title]"),
     subtitle: document.querySelector("[data-list-subtitle]"),
     description: document.querySelector("[data-list-description]"),
