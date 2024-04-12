@@ -189,12 +189,9 @@ const updateRemaining = () => {
 
 /* ------------------------------------ x ----------------------------------- */
 // Preview functionality
-
 const showSummary = (event) => {
   const { target } = event;
   const isClose = target === html.list.close;
-
-  console.log("Clicked target:", target);
 
   if (isClose) {
     html.list.overlay.open = false;
@@ -203,12 +200,11 @@ const showSummary = (event) => {
     const id = target.dataset.id || target.closest(".preview")?.dataset.id;
     const book = books.find((item) => item.id === id);
 
-    console.log("Clicked book:", book);
-
     if (book) {
       const publishedDate = new Date(book.published);
 
-      html.list.image = book.image;
+      html.list.image.setAttribute("src", book.image);
+      html.list.blur.setAttribute("src", book.image);
       html.list.title.innerText = book.title;
       html.list.subtitle.innerText = `${
         authors[book.author]
@@ -237,3 +233,4 @@ html.settings.form.addEventListener("submit", settingsSubmit);
 window.addEventListener("load", loadInitialBooks);
 html.list.button.addEventListener("click", loadMore);
 html.list.items.addEventListener("click", showSummary);
+html.list.close.addEventListener("click", showSummary);
