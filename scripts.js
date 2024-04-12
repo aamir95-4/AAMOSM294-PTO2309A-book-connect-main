@@ -19,6 +19,12 @@ let isDayTheme = true;
 if (!books && !Array.isArray(books)) throw new Error("Source required");
 /* ------------------------------------ x ----------------------------------- */
 // Search Functionality
+/**
+ * Toggles the search overlay when the search icon is clicked,
+ * allowing users to filter books by title, author, and genre.
+ *
+ * @param {Event} event - The click event object.
+ */
 const searchToggle = (event) => {
   const { target } = event;
   const isCancel = target === html.search.cancel;
@@ -55,7 +61,11 @@ const searchToggle = (event) => {
   }
   html.search.title.focus();
 };
-
+/**
+ * Handles the submission of the search form to filter books based on user input.
+ *
+ * @param {Event} event - The form submit event object.
+ */
 const searchSubmit = (event) => {
   event.preventDefault();
 
@@ -100,6 +110,11 @@ const searchSubmit = (event) => {
 /* ------------------------------------ x ----------------------------------- */
 // Settings functionality
 
+/**
+ * Toggles between day and night themes when the settings icon is clicked.
+ *
+ * @param {Event} event - The click event object.
+ */
 const toggleTheme = () => {
   isDayTheme = !isDayTheme;
   const theme = isDayTheme ? day : night;
@@ -107,6 +122,12 @@ const toggleTheme = () => {
   document.documentElement.style.setProperty("--color-dark", theme.dark);
   document.documentElement.style.setProperty("--color-light", theme.light);
 };
+
+/**
+ * Toggles the settings overlay when the settings icon is clicked.
+ *
+ * @param {Event} event - The click event object.
+ */
 const settingsToggle = (event) => {
   const { target } = event;
   const isCancel = target === html.settings.cancel;
@@ -119,6 +140,11 @@ const settingsToggle = (event) => {
   }
 };
 
+/**
+ * Handles the submission of the settings form to apply theme changes.
+ *
+ * @param {Event} event - The form submit event object.
+ */
 const settingsSubmit = (event) => {
   event.preventDefault();
   toggleTheme();
@@ -128,6 +154,9 @@ const settingsSubmit = (event) => {
 /* ------------------------------------ x ----------------------------------- */
 // List functionality
 // Load inital books
+/**
+ * Loads the initial set of books when the page is loaded.
+ */
 const loadInitialBooks = () => {
   const initialBooks = books.slice(0, BOOKS_PER_PAGE);
   const fragment = document.createDocumentFragment();
@@ -146,12 +175,19 @@ const loadInitialBooks = () => {
   updateButton();
 };
 // Load more button
-
+/**
+ * Updates the "Load More" button based on the remaining books to be loaded.
+ */
 const updateButton = () => {
   const remainingBooks = books.length - page * BOOKS_PER_PAGE;
   html.list.button.innerHTML = `Show more (${remainingBooks})`;
 };
 
+/**
+ * Loads more books when the "Load More" button is clicked.
+ *
+ * @param {Event} event - The click event object.
+ */
 const loadMore = (event) => {
   const { target } = event;
   const isButton = target === html.list.button;
@@ -180,7 +216,9 @@ const loadMore = (event) => {
     updateButton();
   }
 };
-
+/**
+ * Updates the remaining books count displayed in the "Load More" button.
+ */
 const updateRemaining = () => {
   const initial = books.length;
   const remaining = books.length - page * BOOKS_PER_PAGE;
@@ -189,6 +227,11 @@ const updateRemaining = () => {
 
 /* ------------------------------------ x ----------------------------------- */
 // Preview functionality
+/**
+ * Shows book details in an overlay when a book preview is clicked.
+ *
+ * @param {Event} event - The click event object.
+ */
 const showSummary = (event) => {
   const { target } = event;
   const isClose = target === html.list.close;
