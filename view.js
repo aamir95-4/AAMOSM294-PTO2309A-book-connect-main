@@ -11,7 +11,7 @@ export const html = {
     items: document.querySelector("[data-list-items]"),
     message: document.querySelector("[data-list-message]"),
     button: document.querySelector("[data-list-button]"),
-    active: document.querySelector("[data-list-active]"),
+    overlay: document.querySelector("[data-list-active]"),
     blur: document.querySelector("[data-list-blur]"),
     img: document.querySelector("[data-list-img]"),
     title: document.querySelector("[data-list-title]"),
