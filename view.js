@@ -36,7 +36,7 @@ export const html = {
     theme: document.querySelector("[data-settings-theme]"),
   },
 };
-
+// functions
 export const createPreview = ({ author, id, image, title }) => {
   const element = document.createElement("div");
   element.className = "preview";
