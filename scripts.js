@@ -111,7 +111,7 @@ const searchSubmit = (event) => {
 // Settings functionality
 
 /**
- * Toggles between day and night themes when the settings icon is clicked.
+ * Function for toggling between day and night mode.
  *
  * @param {Event} event - The click event object.
  */
@@ -125,6 +125,7 @@ const toggleTheme = () => {
 
 /**
  * Toggles the settings overlay when the settings icon is clicked.
+ * Enables the drop down menu to choose between day and night themes.
  *
  * @param {Event} event - The click event object.
  */
@@ -141,7 +142,7 @@ const settingsToggle = (event) => {
 };
 
 /**
- * Handles the submission of the settings form to apply theme changes.
+ * Handler to submit changes in the settings form using the submit button.
  *
  * @param {Event} event - The form submit event object.
  */
@@ -228,7 +229,7 @@ const updateRemaining = () => {
 /* ------------------------------------ x ----------------------------------- */
 // Preview functionality
 /**
- * Shows book details in an overlay when a book preview is clicked.
+ * Shows book details in an overlay when a book the book is clicked.
  *
  * @param {Event} event - The click event object.
  */
@@ -238,7 +239,6 @@ const showSummary = (event) => {
 
   if (isClose) {
     html.list.overlay.open = false;
-    console.log("Closing overlay...");
   } else {
     const id = target.dataset.id || target.closest(".preview")?.dataset.id;
     const book = books.find((item) => item.id === id);
@@ -255,7 +255,6 @@ const showSummary = (event) => {
       html.list.description.innerText = book.description;
 
       html.list.overlay.open = true;
-      console.log("Opening overlay...");
     }
   }
 };
